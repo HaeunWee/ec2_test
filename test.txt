@@ -1,0 +1,57 @@
+sudo apt update
+sudo apt upgrade
+
+# SSH 비밀번호 로그인 활성화
+sudo adduser username
+sudo vi /etc/ssh/sshd_config
+##### sshd_config
+PasswordAuthentication yes
+ChallengeResponseAuthentication no
+##### sshd_config
+
+# Node.js 환경
+sudo apt install nodejs
+sudo apt install npm
+mkdir myapp
+cd myapp
+npm init -y
+npm install express
+
+sudo vi index.js
+
+##### index.js
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
+##### index.js
+node index.js
+# 3000번 포트에서 Hello, world.
+
+##### app.py
+sudo apt install python3-pip
+# 가상환경으로 패키지 설치해줘야함
+python3 -m venv testenv
+source testenv/bin/activate
+# 가상환경 testenv 접속
+pip3 install flask
+vi app.py
+##### app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+##### app.py
+python3 app.py
+# 5000번 포트에서 Hello, world
