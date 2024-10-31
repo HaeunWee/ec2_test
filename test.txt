@@ -6,8 +6,9 @@ sudo adduser username
 sudo vi /etc/ssh/sshd_config
 ##### sshd_config
 PasswordAuthentication yes
-ChallengeResponseAuthentication no
+ChallengeResponseAuthentication yes
 ##### sshd_config
+sudo systemctl restart ssh
 
 # Node.js 환경
 sudo apt install nodejs
